@@ -26,6 +26,8 @@ body {
   flex: 1;
 
   margin-top: 120px;           /* ✅ upar shift kar diya (adjust as you like) */
+  position: relative;
+  margin-left: 150px;
 }
 
 /* ---------------- Left Section ---------------- */
@@ -120,7 +122,7 @@ body {
 
 /* Login box */
 .login-box {
-  width: 350px;
+  width: 400px;
   background: transparent;
   padding: 0;
   box-shadow: none;
