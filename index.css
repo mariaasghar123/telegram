@@ -662,3 +662,32 @@ footer img {
   }
 }
 
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  display: none; /* hidden by default */
+  z-index: 9999;
+}
+.notification.success {
+  background-color: #4CAF50; /* green */
+}
+.notification.error {
+  background-color: #f44336; /* red */
+}
+/* jab error ho */
+.error-message  {
+  border-color: #f44336;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 20px;
+  margin-top: 5px;
+  width: 100%;
+  display: none; /* by default hidden */
+}

@@ -11,6 +11,9 @@
 
 </head>
 <body>
+  <!-- Notification box (hidden by default) -->
+<div id="notification" class="notification"></div>
+
   <div class="container">
     <!-- Left section with logo -->
     <div class="left">
@@ -36,8 +39,11 @@
 
   <div class="input-group">
     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-    <input class="input" type="text" placeholder="Login Name" name="username" required />
+    <input class="input" type="text" placeholder="Login Name" name="username"  />
+    <small class="error-message"></small>
+
   </div>
+    
   <!-- ✅ Typing button OUTSIDE input box -->
   
 
@@ -46,8 +52,10 @@
 
     <div class="input-group">
       <span class="icon"><i class="fa-solid fa-lock"></i></span>
-      <input class="input" type="password" placeholder="Password" name="password" required />
+      <input class="input" type="password" placeholder="Password" name="password"  />
+     <small class="error-message"></small>
     </div>
+     
 
     <button type="submit" class="login-btn">Login</button>
   </form>
