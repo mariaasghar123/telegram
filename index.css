@@ -510,13 +510,13 @@ footer img {
 @media (max-width: 1600px) {
   .container {
     margin-left: 50px;
-    gap: 3rem; /* gap thoda kam kar do */
+    gap: 3rem; 
     flex-direction: column;
     min-height: auto;
 
   }
 }
-/* Tablet: side by side gap kam */
+
 @media (max-width: 992px) {
   .container {
     gap: 2rem;
@@ -532,10 +532,10 @@ footer img {
   }
 }
 
-/* Mobile: stack vertically */
+
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* stack left & right */
+    flex-direction: column;
     align-items:center;
     justify-content: center;
     margin-left: 0;
@@ -553,42 +553,41 @@ footer img {
 
   .heading-box,
   .login-box {
-    width: 90%; /* full width */
+    width: 90%; 
     
     margin: 0 auto;
   }
   .login-box {
-    margin-top: 0; /* ✅ */
-    /* margin-bottom: 10px; */
+    margin-top: 0; 
+   
   }
-  /* ✅ Underline2 ko hide kar do */
+ 
   .underline2 {
     display: none;
     
   }
 
   .input-row {
-    flex-direction: column; /* button niche chala jaye */
-    gap: 0px;              /* space kam kar do */
+    flex-direction: column; 
+    gap: 0px;              
     justify-content: center;
     width: 100%;
     position: relative;
     margin-right: -450px;
     margin-top: -180px;
   }
-  /* Input group full width le */
+ 
   .input-group {
     flex: 1;
   }
 
-  /* Typing button ka size chhota karo taki pass aa jaye */
   .typing-btn {
     width: 35px;
     height: 35px;
   }
 
   footer img {
-    height: 120px; /* thoda chhota height */
+    height: 120px; 
     object-fit: cover;
   }
   
@@ -596,6 +595,8 @@ footer img {
 
 /* Very small phones */
 @media (max-width: 380px) {
+   
+
   .heading-box h2 {
     font-size: 1rem;
   }
@@ -606,8 +607,8 @@ footer img {
     width: 95%;
   }
   footer img {
-    width: 10%;
-    height: 90px; /* aur chhota kar do */
+    width: 100%;
+    height: 90px; 
     object-fit: cover;
   }
   
