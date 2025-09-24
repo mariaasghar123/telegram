@@ -19,15 +19,15 @@ body {
 /* Container (Left + Right) */
 .container {
   display: flex;
-  justify-content: center;     /* center dono sides */
-  align-items: flex-start;     /* ✅ top align kar diya */
-  gap: 5rem;                   /* left aur right ke darmiyan space */
+  justify-content: center;    
+  align-items: flex-start;     
+  gap: 5rem;                   
   padding: 2rem;
   width: 100%;
   max-width: 1200px;
   flex: 1;
 
-  margin-top: 120px;           /* ✅ upar shift kar diya (adjust as you like) */
+  margin-top: 120px;           
   position: relative;
   margin-left: 150px;
 }
@@ -40,7 +40,7 @@ body {
   padding: 0;
 }
 
-/* logo + brand aik line mein */
+/* logo + brand  */
 .left .logo {
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@ body {
   object-fit: contain;
 }
 
-/* brand text + symbol aik line mein */
+/* brand text + symbol */
 .left .brand {
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ body {
   font-weight: lighter;
 }
 
-/* symbol image thoda upar */
+/* symbol image */
 .left .brand img.symbol {
   position: relative;
   top: -5px;
@@ -247,7 +247,7 @@ footer {
 }
 
 footer img {
-  width: 100%;          /* poori screen width */
+  width: 100%;          
   height: auto;         /* aspect ratio maintain */
   display: block;       /* gap remove */
 }
@@ -275,7 +275,7 @@ body {
 /* Container (Left + Right) */
 .container {
   display: flex;
-  justify-content: center; /* center dono sides */
+  justify-content: center; /* center  sides */
   align-items: flex-start; /* top align */
   gap: 5rem;
   padding: 2rem;
@@ -294,7 +294,7 @@ body {
   padding: 0;
 }
 
-/* logo + brand aik line mein */
+/* logo + brand  */
 .left .logo {
   display: flex;
   align-items: center;
@@ -307,7 +307,7 @@ body {
   object-fit: contain;
 }
 
-/* brand text + symbol aik line mein */
+/* brand text + symbol */
 .left .brand {
   display: flex;
   align-items: center;
@@ -336,7 +336,7 @@ body {
 .right {
   flex: 1;
   display: flex;
-  flex-direction: column;       /* heading upar + form niche */
+  flex-direction: column;      
   justify-content: center;
   align-items: center;
   padding: 0;
@@ -506,16 +506,7 @@ footer img {
   color: #0d6efd;
 }
 
-/* ✅ RESPONSIVE PART */
-/* @media (max-width: 1600px) {
-  .container {
-    margin-left: 50px;
-    gap: 3rem; 
-    flex-direction: column;
-    min-height: auto;
-
-  }
-} */
+/* ---------------- Responsive ---------------- */
  @media (max-width: 1600px) {
   body {
     display: flex;
@@ -627,20 +618,15 @@ footer img {
   
 }
 
-
-  
-
  /* Very small phones */
 @media (max-width: 380px) {
-
-  /* container ko full height aur bilkul centre main karo */
   .container {
     flex-direction: column;        /* top to bottom layout */
     justify-content: center;       /* vertically centre */
     align-items: center;           /* horizontally centre */
-    min-height: 100vh;             /* pura viewport height */
-    margin: 0;                     /* margin hata do */
-    padding: 1rem;                 /* thoda padding rakh do */
+    min-height: 100vh;             /*  viewport height */
+    margin: 0;                     /* margin 0 */
+    padding: 1rem;                 
     position: relative;
     margin-top: -100px;
   }
