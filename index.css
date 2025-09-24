@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+   overflow-x: hidden;
 }
 
 /* Container (Left + Right) */
@@ -366,7 +367,7 @@ body {
 
 /* Grey underline */
 .underline2 {
-  width: 440px;
+  width: 540px;
   height: 0.5px;
   background: rgb(192, 192, 190);
   margin-bottom: 1rem;
@@ -387,6 +388,7 @@ body {
 /* ---------------- Inputs + Button ---------------- */
 .input-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-bottom: 1rem;
@@ -400,7 +402,7 @@ body {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 0.5rem 0.75rem;
+  padding: 1rem 1rem;
   margin-bottom: 1rem;
 }
 
@@ -417,6 +419,7 @@ body {
   width: 40px;
   height: 40px;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -436,8 +439,9 @@ body {
   outline: none;
   background: transparent;
   width: 100%;
-  font-size: 1rem;
-  color: #a8a8a8;
+  font-size: 1.1rem;
+  color: #181717;
+  padding: 0.1rem 0;
 }
 
 .input-group input::placeholder {
@@ -503,12 +507,25 @@ footer img {
 }
 
 /* ✅ RESPONSIVE PART */
+@media (max-width: 1600px) {
+  .container {
+    margin-left: 50px;
+    gap: 3rem; /* gap thoda kam kar do */
+    flex-direction: column;
+    min-height: auto;
 
+  }
+}
 /* Tablet: side by side gap kam */
 @media (max-width: 992px) {
   .container {
     gap: 2rem;
-    margin-top: 60px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 0px;
+    min-height: auto;
   }
   .login-box {
     width: 350px;
@@ -519,10 +536,14 @@ footer img {
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* stack left & right */
-    align-items: center;
+    align-items:center;
+    justify-content: center;
     margin-left: 0;
     gap: 2rem;
+    margin-top: 0;
+    min-height:100vh;
   }
+  
 
   .left, .right {
     flex: unset;
@@ -533,21 +554,48 @@ footer img {
   .heading-box,
   .login-box {
     width: 90%; /* full width */
+    
     margin: 0 auto;
+  }
+  .login-box {
+    margin-top: 0; /* ✅ */
+    /* margin-bottom: 10px; */
+  }
+  /* ✅ Underline2 ko hide kar do */
+  .underline2 {
+    display: none;
+    
   }
 
   .input-row {
     flex-direction: column; /* button niche chala jaye */
-    gap: 0.5rem;
+    gap: 0px;              /* space kam kar do */
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin-right: -450px;
+    margin-top: -180px;
   }
+  /* Input group full width le */
+  .input-group {
+    flex: 1;
+  }
+
+  /* Typing button ka size chhota karo taki pass aa jaye */
+  .typing-btn {
+    width: 35px;
+    height: 35px;
+  }
+
   footer img {
     height: 120px; /* thoda chhota height */
     object-fit: cover;
   }
+  
 }
 
 /* Very small phones */
-@media (max-width: 480px) {
+@media (max-width: 380px) {
   .heading-box h2 {
     font-size: 1rem;
   }
@@ -558,7 +606,9 @@ footer img {
     width: 95%;
   }
   footer img {
+    width: 10%;
     height: 90px; /* aur chhota kar do */
     object-fit: cover;
   }
+  
 }
