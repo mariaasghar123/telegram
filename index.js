@@ -131,14 +131,25 @@ document.querySelectorAll('.input').forEach(input => {
 // const openKeyboardBtn = document.getElementById('openKeyboard');
 // const screenKeyboard = document.getElementById('screenKeyboard');
 // const closeKeyboardBtn = document.getElementById('closeKeyboard');
+// const inputs = document.querySelectorAll('.input'); // all inputs
 // const keys = document.querySelectorAll('.key');
+// const capsLockBtn = document.getElementById('capsLock');
+// const shiftBtn = document.getElementById('shift');
+
 // let currentInput = null;
 // let shiftActive = false;
 // let capsActive = false;
 
+// // Set the current input when focused
+// inputs.forEach(input => {
+//   input.addEventListener('focus', () => {
+//     currentInput = input;
+//   });
+// });
+
 // // Open keyboard
 // openKeyboardBtn.addEventListener('click', () => {
-//   currentInput = document.querySelector('.input:focus') || document.querySelector('.input');
+//   if (!currentInput) currentInput = document.querySelector('.input'); // fallback
 //   screenKeyboard.style.display = 'block';
 //   currentInput.focus();
 // });
@@ -149,18 +160,32 @@ document.querySelectorAll('.input').forEach(input => {
 //   currentInput = null;
 // });
 
+// // Function to update key labels
+// function updateKeysDisplay() {
+//   keys.forEach(key => {
+//     const keyValue = key.dataset.key;
+//     if (!keyValue) return; // skip functional keys
+
+//     if (shiftActive ^ capsActive) { // XOR: only one active
+//       key.textContent = keyValue.toUpperCase();
+//     } else {
+//       key.textContent = keyValue.toLowerCase();
+//     }
+//   });
+// }
+
 // // Toggle Caps Lock
-// const capsLockBtn = document.getElementById('capsLock');
 // capsLockBtn.addEventListener('click', () => {
 //   capsActive = !capsActive;
 //   capsLockBtn.classList.toggle('active');
+//   updateKeysDisplay();
 // });
 
 // // Toggle Shift
-// const shiftBtn = document.getElementById('shift');
 // shiftBtn.addEventListener('click', () => {
 //   shiftActive = !shiftActive;
 //   shiftBtn.classList.toggle('active');
+//   updateKeysDisplay();
 // });
 
 // // Type keys
@@ -184,14 +209,9 @@ document.querySelectorAll('.input').forEach(input => {
 //         currentInput.value += '\t';
 //         break;
 //       case 'arrowUp':
-//         // optionally handle
-//         break;
 //       case 'arrowDown':
-//         break;
 //       case 'arrowLeft':
-//         break;
 //       case 'arrowRight':
-//         break;
 //       case 'shift':
 //       case 'capsLock':
 //       case 'ctrl':
@@ -211,6 +231,9 @@ document.querySelectorAll('.input').forEach(input => {
 //         }
 //         currentInput.value += char;
 //     }
+
+//     // Reset visual keys if shift was active
+//     if (!shiftActive) updateKeysDisplay();
 
 //     currentInput.dispatchEvent(new Event('input'));
 //     currentInput.focus();
